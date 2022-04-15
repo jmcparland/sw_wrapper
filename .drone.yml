@@ -1,0 +1,15 @@
+kind: pipeline
+name: Construct Detections Wrapper Base Image
+type: kubernetes
+
+steps:
+
+  - name: Build and Publish Container
+    image: plugins/docker
+    settings:
+      repo: jmcparland/wrapper-test
+      auto_tag: true
+      username: 
+        from_secret: DOCKER_USER
+      password: 
+        from_secret: DOCKER_PASSWORD
